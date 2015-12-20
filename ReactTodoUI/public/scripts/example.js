@@ -41,7 +41,7 @@ var Todo = React.createClass({
 });
 //INFO: end of todo component, which is one todo.
 //TodoBox is a class created by react with functions
-//  1. loadTodosFromServer
+//  1. setToDosFromServer
 //  2. handleTodoSubmit, called by render in JSX style.
 //  3. getInitialState , over-ridden method, to override React's default behavior.
 //  4. componentDidMount, over-ridden method, to override React's default behavior
@@ -49,7 +49,7 @@ var Todo = React.createClass({
 
 var TodoBox = React.createClass({
   //INFO: beginning of TODOBOX class created by react.
-  loadTodosFromServer: function() {
+  setToDosFromServer: function() {
     //INFO: called as <TodoBox url="http://localhost:3000/api/todos" pollInterval={999999999} />
     // url is referred as this.props.url. 
     $.ajax({
@@ -123,8 +123,8 @@ boundGetX(); // 81
   },
   componentDidMount: function() {
     //INFO: calls once on mounting the component in react life cycle.
-    this.loadTodosFromServer();
-    setInterval(this.loadTodosFromServer, this.props.pollInterval);
+    this.setToDosFromServer();
+    setInterval(this.setToDosFromServer, this.props.pollInterval);
   },
   render: function() {
     //INFO: this is JSX so use className instead of class.

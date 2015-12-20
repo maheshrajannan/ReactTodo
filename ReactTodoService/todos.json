@@ -70,5 +70,9 @@
     {
         "author": "menu2",
         "text": "menu3"
+    },
+    {
+        "author": "info1",
+        "text": "info2"
     }
 ]
