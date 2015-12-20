@@ -1,0 +1,10 @@
+{
+  "name": "React ToDo UI",
+  "description": "React TODO UI with minimal dependencies",
+  "keywords": [ "react", "todo", "UI" ],
+  "repository": "https://github.com/maheshrajannan/reactTodoUI",
+  "logo": "maheshrajannanphoto",
+  "website": "linkedin.com/maheshrajannan",
+  "success_url": "/"
+}
+

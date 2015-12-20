@@ -1,0 +1,29 @@
+{
+  "name": "ReactTodoPrj",
+  "version": "0.0.0",
+  "description": "ToDo Project With Minimal Dependencies",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maheshrajannan/react-todo.git"
+  },
+  "keywords": [
+    "react",
+    "simple",
+    "project",
+    "no dependencies"
+  ],
+  "author": "maheshrajannan",
+  "engines" : {
+    "node" : "*"
+  }
+}

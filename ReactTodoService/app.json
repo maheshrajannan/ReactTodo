@@ -1,0 +1,10 @@
+{
+  "name": "React To Do Service",
+  "description": "React To Do Service with minimal dependencies",
+  "keywords": [ "react", "todo", "service" ],
+  "repository": "https://github.com/maheshrajannan/reactToDoService",
+  "logo": "maheshrajannanphoto",
+  "website": "linkedin.com/maheshrajannan",
+  "success_url": "/"
+}
+
