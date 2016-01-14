@@ -29,6 +29,7 @@ var Todo = React.createClass({
   },
 
   render: function() {
+    writeToScreen('render todo', 'info');        
     return (
       <div className="todo">
         <h2 className="todoAuthor">
@@ -119,15 +120,28 @@ boundGetX(); // 81
   INFO:getInitialState() executes exactly once during the lifecycle of the component and sets up the initial state of the component.
   **/
   getInitialState: function() {
+    writeToScreen('GetInitialState', 'info');    
     return {data: []};
   },
+  /**
+  INFO: componentWillMount is called before the render method is executed. 
+  It is important to note that setting the state in this phase will not trigger a re-rendering.
+  **/
   componentDidMount: function() {
+    //REF:http://busypeoples.github.io/post/react-component-lifecycle/
     //INFO: calls once on mounting the component in react life cycle.
+    //As soon as the render method has been executed the componentDidMount function is called. 
+    //The DOM can be accessed in this method, 
+    //enabling to define DOM manipulations or data fetching operations. 
+    //Any DOM interactions should always happen in this phase not inside the render method. 
+    writeToScreen('componentDidMount', 'info');    
     this.setToDosFromServer();
     setInterval(this.setToDosFromServer, this.props.pollInterval);
   },
   render: function() {
     //INFO: this is JSX so use className instead of class.
+    writeToScreen('render todobox, which todos plus form', 'info');    
+
     return (
       <div className="todoBox">
         <h1>Todos</h1>
@@ -151,6 +165,7 @@ boundGetX(); // 81
   
 var TodoList = React.createClass({
   render: function() {
+    writeToScreen('render todo list', 'info');        
     var todoNodes = this.props.data.map(function(todo, index) {
       return (
         // `key` is a React-specific concept and is not mandatory.
@@ -183,6 +198,7 @@ var TodoForm = React.createClass({
     this.refs.text.value = '';
   },
   render: function() {
+    writeToScreen('render todo form', 'info');        
     return (
       <form className="todoForm" onSubmit={this.handleSubmit}>
         <input type="text" placeholder="name" ref="author" /> 
@@ -200,3 +216,17 @@ ReactDOM.render(
   <TodoBox url="http://localhost:3000/api/todos" pollInterval={999999999} />,
   document.getElementById('content')
 );
+
+function writeToScreen(msg, level) {
+
+    var elem = document.getElementById('screen');
+
+    elem.innerHTML += '<div class="log bg-' + level + '">' + 
+
+    '<span class="glyphicon glyphicon-ok"></span> &nbsp;&nbsp;' + 
+
+      msg + 
+
+    '</div>';
+
+}
