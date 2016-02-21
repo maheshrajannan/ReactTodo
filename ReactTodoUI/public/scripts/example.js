@@ -4,11 +4,14 @@ var Todo = React.createClass({
     console.log('rawMarkup');
 /**
 INFO: built in protection against XSS attack.
-All we're doing here is calling the marked library. We need to convert this.props.children from React's wrapped text to a raw string that marked will understand so we explicitly call toString().
+All we're doing here is calling the marked library. We need to convert this.props.children 
+from React's wrapped text to a raw string that marked will understand so we explicitly call toString().
 
-But there's a problem! Our rendered comments look like this in the browser: "<p>This is <em>another</em> comment</p>". We want those tags to actually render as HTML.
+But there's a problem! Our rendered comments look like this in the 
+browser: "<p>This is <em>another</em> comment</p>". We want those tags to actually render as HTML.
 
-That's React protecting you from an XSS attack. There's a way to get around it but the framework warns you not to use it:
+That's React protecting you from an XSS attack. 
+There's a way to get around it but the framework warns you not to use it:
 
 var Todo = React.createClass({
   render: function() {
@@ -72,9 +75,11 @@ var TodoBox = React.createClass({
 http://stackoverflow.com/questions/24285581/purpose-of-bindthis-at-end-of-ajax-callback
 
 It ensure's this will be the correct object inside the callback. See Function.prototype.bind().
-If you ran your original code in without bind, you'd get this error: TypeError: undefined is not a function because this === window in the callback;
+If you ran your original code in without bind, you'd get this error: 
+TypeError: undefined is not a function because this === window in the callback;
 
-or in strict mode: TypeError: Cannot read property 'setState' of undefined, where this === undefined in the callback.
+or in strict mode: TypeError: Cannot read property 'setState' of undefined, 
+where this === undefined in the callback.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
@@ -117,7 +122,8 @@ boundGetX(); // 81
     });
   },
   /**
-  INFO:getInitialState() executes exactly once during the lifecycle of the component and sets up the initial state of the component.
+  INFO:getInitialState() executes exactly once during the lifecycle of the 
+  component and sets up the initial state of the component.
   **/
   getInitialState: function() {
     writeToScreen('GetInitialState', 'info');    
