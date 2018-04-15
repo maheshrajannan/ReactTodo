@@ -5,7 +5,15 @@ var bodyParser = require('body-parser');
 var app = express();
 var cors = require('cors');
 var corsFilter = require('./corsFilter');
+var https = require('https');
+//TODO move this to a method.
+var hskey = fs.readFileSync('../SSLAcadia/server.key');
+var hscert = fs.readFileSync('../SSLAcadia/server.crt');
 
+var options = {
+    key: hskey,
+    cert: hscert
+};
 
 var TODOS_FILE = path.join(__dirname, 'todos.json');
 
@@ -36,7 +44,12 @@ app.post('/api/todos',cors(corsFilter.corsOptions), function(req, res) {
   });
 });
 
+/**
+ * Create HTTP server.
+ */
 
-app.listen(app.get('port'), function() {
+var server = https.createServer(options,app);
+
+server.listen(app.get('port'), function() {
   console.log('Server started: http://localhost:' + app.get('port') + '/');
 });

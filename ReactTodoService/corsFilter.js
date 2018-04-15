@@ -1,7 +1,7 @@
 var cors = require('cors');
 var fs = require('fs');
 
-var whitelist = ['http://localhost:3000','http://localhost:4000'];
+var whitelist = ['https://localhost:3000','https://localhost:4000'];
 
 var corsOptions = {
   origin: function(origin, callback){
